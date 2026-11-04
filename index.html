@@ -1022,6 +1022,182 @@ body {
   }
 }
 
+
+
+/* Final product-card and responsive header refinement */
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+}
+.product-actions > a,
+.product-actions > button {
+  flex: 1 1 135px;
+  min-width: 0;
+  min-height: 44px;
+  justify-content: center;
+}
+.product-actions .enquire,
+.product-actions .whatsapp {
+  display: none !important;
+}
+
+/* Tablet: large brand banner plus a clean menu control */
+@media (min-width: 761px) and (max-width: 1100px) {
+  #site-header > .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 104px;
+    gap: 16px;
+    padding-block: 10px;
+  }
+  #site-header .brand-logo-link {
+    flex: 0 1 430px;
+    width: min(430px, calc(100% - 66px));
+    max-width: calc(100% - 64px);
+    min-width: 0;
+  }
+  #site-header .brand-logo-header {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+  #site-header .desktop-nav,
+  #site-header [data-template-id="header-quote"] {
+    display: none !important;
+  }
+  #site-header > .wrap > .flex {
+    display: flex;
+    flex: 0 0 48px;
+    justify-content: flex-end;
+  }
+  #site-header #menu-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+  }
+}
+
+/* Mobile: maintain a readable brand lockup and keep the menu separate */
+@media (max-width: 760px) {
+  #site-header > .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 32px);
+    min-height: 88px;
+    gap: 10px;
+    padding-block: 9px;
+  }
+  #site-header .brand-logo-link {
+    flex: 0 1 auto;
+    width: min(370px, calc(100% - 58px));
+    max-width: calc(100% - 58px);
+    min-width: 0;
+  }
+  #site-header .brand-logo-header {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+  #site-header .desktop-nav,
+  #site-header [data-template-id="header-quote"] {
+    display: none !important;
+  }
+  #site-header > .wrap > .flex {
+    display: flex;
+    flex: 0 0 48px;
+    justify-content: flex-end;
+  }
+  #site-header #menu-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+  }
+  #site-header #mobile-nav {
+    width: calc(100% - 32px);
+  }
+}
+
+@media (max-width: 520px) {
+  #site-header > .wrap {
+    width: calc(100% - 26px);
+    min-height: 82px;
+    gap: 8px;
+  }
+  #site-header .brand-logo-link {
+    width: min(350px, calc(100% - 54px));
+    max-width: calc(100% - 54px);
+  }
+  #site-header > .wrap > .flex {
+    flex-basis: 46px;
+  }
+  #site-header #menu-toggle {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+  #site-header #mobile-nav {
+    width: calc(100% - 26px);
+  }
+}
+
+/* On compact phones, give the company name the full header row.
+   The menu sits on its own row instead of forcing the logo to shrink. */
+@media (max-width: 360px) {
+  #site-header > .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    justify-items: stretch;
+    align-items: center;
+    width: calc(100% - 24px);
+    min-height: 0;
+    gap: 6px;
+    padding-block: 9px;
+  }
+  #site-header .brand-logo-link {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    width: 100%;
+    max-width: 100%;
+  }
+  #site-header > .wrap > .flex {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+    flex: 0 0 auto;
+  }
+  #site-header #menu-toggle {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+  #site-header #mobile-nav {
+    width: calc(100% - 24px);
+  }
+}
+
+@media (max-width: 520px) {
+  .product-actions > a,
+  .product-actions > button {
+    flex-basis: calc(50% - 5px);
+  }
+}
+
 </style>
   <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
@@ -1093,7 +1269,7 @@ body {
        <p data-template-id="p1-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Contemporary cascading chandelier with gold, amber, clear and white crystal elements.</p>
        <p data-template-id="p1-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹50,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/crystal-chandelier-a4" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-1">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/crystal-chandelier-a4" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-1">Specifications</button>
        </div>
       </div>
       <div id="spec-1" class="specs" hidden="">
@@ -1143,7 +1319,7 @@ body {
        <p data-template-id="p2-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Royal-style chandelier with ornate curved arms, decorative metalwork and warm frosted glass shades.</p>
        <p data-template-id="p2-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹25,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/royal-palace-decorative-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-2">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/royal-palace-decorative-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-2">Specifications</button>
        </div>
       </div>
       <div id="spec-2" class="specs" hidden="">
@@ -1192,7 +1368,7 @@ body {
        <p data-template-id="p3-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Majestic multi-tier crystal chandelier for luxurious interiors.</p>
        <p data-template-id="p3-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹320,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/royal-legacy-multi-tier-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-3">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/royal-legacy-multi-tier-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-3">Specifications</button>
        </div>
       </div>
       <div id="spec-3" class="specs" hidden="">
@@ -1241,7 +1417,7 @@ body {
        <p data-template-id="p4-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Premium crystal ceiling chandelier with cascading design and polished metal finish.</p>
        <p data-template-id="p4-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹35,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/luxury-flush-mount-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-4">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/luxury-flush-mount-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-4">Specifications</button>
        </div>
       </div>
       <div id="spec-4" class="specs" hidden="">
@@ -1290,7 +1466,7 @@ body {
        <p data-template-id="p5-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Cascading crystal pendant with circular canopy, crystal strands and decorative drops.</p>
        <p data-template-id="p5-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹75,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/grand-cascading-crystal-pendant-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-5">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/grand-cascading-crystal-pendant-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-5">Specifications</button>
        </div>
       </div>
       <div id="spec-5" class="specs" hidden="">
@@ -1339,7 +1515,7 @@ body {
        <p data-template-id="p6-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Multi-tier chandelier with gold detailing and sparkling crystals.</p>
        <p data-template-id="p6-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹50,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/regal-gold-crystal-tiered-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-6">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/regal-gold-crystal-tiered-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-6">Specifications</button>
        </div>
       </div>
       <div id="spec-6" class="specs" hidden="">
@@ -1388,7 +1564,7 @@ body {
        <p data-template-id="p8-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Branch-inspired chandelier decorated with crystal blooms.</p>
        <p data-template-id="p8-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹20,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/golden-branch-crystal-bloom-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-8">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/golden-branch-crystal-bloom-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-8">Specifications</button>
        </div>
       </div>
       <div id="spec-8" class="specs" hidden="">
@@ -1437,7 +1613,7 @@ body {
        <p data-template-id="p9-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Linear chandelier with crystal prisms and a gold finish.</p>
        <p data-template-id="p9-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹35,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/royal-gold-crystal-linear-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-9">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/royal-gold-crystal-linear-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-9">Specifications</button>
        </div>
       </div>
       <div id="spec-9" class="specs" hidden="">
@@ -1486,7 +1662,7 @@ body {
        <p data-template-id="p10-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Tiered crystal chandelier with a luxurious gold finish.</p>
        <p data-template-id="p10-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹75,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/opulent-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-10">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/opulent-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-10">Specifications</button>
        </div>
       </div>
       <div id="spec-10" class="specs" hidden="">
@@ -1535,7 +1711,7 @@ body {
        <p data-template-id="p11-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Square crystal chandelier with layered crystal beads and a warm golden glow.</p>
        <p data-template-id="p11-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹20,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/modern-square-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-11">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/modern-square-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-11">Specifications</button>
        </div>
       </div>
       <div id="spec-11" class="specs" hidden="">
@@ -1584,7 +1760,7 @@ body {
        <p data-template-id="p12-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Large multi-tier crystal chandelier designed for banquet halls, hotels and ballrooms.</p>
        <p data-template-id="p12-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹350,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/grand-crystal-banquet-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-12">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/grand-crystal-banquet-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-12">Specifications</button>
        </div>
       </div>
       <div id="spec-12" class="specs" hidden="">
@@ -1633,7 +1809,7 @@ body {
        <p data-template-id="p13-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Large rectangular crystal chandelier with layered cascades and warm illumination.</p>
        <p data-template-id="p13-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹150,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/royal-grand-rectangular-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-13">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/royal-grand-rectangular-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-13">Specifications</button>
        </div>
       </div>
       <div id="spec-13" class="specs" hidden="">
@@ -1682,7 +1858,7 @@ body {
        <p data-template-id="p14-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Gold Sputnik chandelier with radial LED arms and warm ambient illumination.</p>
        <p data-template-id="p14-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹25,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/modern-gold-sputnik-led-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-14">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/modern-gold-sputnik-led-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-14">Specifications</button>
        </div>
       </div>
       <div id="spec-14" class="specs" hidden="">
@@ -1731,7 +1907,7 @@ body {
        <p data-template-id="p15-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Six-light gold chandelier with faceted crystal-glass globes.</p>
        <p data-template-id="p15-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹5,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/luxury-gold-crystal-globe-6-light-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-15">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/luxury-gold-crystal-globe-6-light-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-15">Specifications</button>
        </div>
       </div>
       <div id="spec-15" class="specs" hidden="">
@@ -1780,7 +1956,7 @@ body {
        <p data-template-id="p17-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Gold-finish rectangular chandelier with crystals and warm LED illumination.</p>
        <p data-template-id="p17-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹125,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/luxury-gold-rectangular-crystal-led-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-17">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/luxury-gold-rectangular-crystal-led-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-17">Specifications</button>
        </div>
       </div>
       <div id="spec-17" class="specs" hidden="">
@@ -1829,7 +2005,7 @@ body {
        <p data-template-id="p18-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Round crystal chandelier with aqua and clear decorative crystals.</p>
        <p data-template-id="p18-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹45,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-18">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-18">Specifications</button>
        </div>
       </div>
       <div id="spec-18" class="specs" hidden="">
@@ -1878,7 +2054,7 @@ body {
        <p data-template-id="p19-summary" class="canva-text product-summary" style="font-weight: 400; font-style: normal; font-size: 16px;">Gold-finish ring chandelier with layered crystal rings and cascading strands.</p>
        <p data-template-id="p19-price" class="canva-text product-price" style="font-weight: 400; font-style: normal; font-size: 16px;">From ₹120,000</p>
        <div class="product-actions">
-        <a href="https://www.kamatlux.com/products/grand-imperial-gold-crystal-ring-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-19">Specifications</button><a href="#enquiry" class="enquire">Enquire Now</a><a class="whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.kamatlux.com/products/grand-imperial-gold-crystal-ring-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a><button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-19">Specifications</button>
        </div>
       </div>
       <div id="spec-19" class="specs" hidden="">
@@ -1930,8 +2106,6 @@ body {
        <div class="product-actions">
         <a href="https://www.kamatlux.com/products/royal-ivory-crystal-multi-arm-jhumar" target="_blank" rel="noopener noreferrer">View Details ↗</a>
         <button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-20">Specifications</button>
-        <a href="#enquiry" class="enquire">Enquire Now</a>
-        <a class="whatsapp" href="https://wa.me/919990891122?text=I%20am%20interested%20in%20the%20Royal%20Ivory%20Crystal%20Multi-Arm%20Jhumar." target="_blank" rel="noopener noreferrer">WhatsApp</a>
        </div>
       </div>
       <div id="spec-20" class="specs" hidden>
@@ -1957,8 +2131,6 @@ body {
        <div class="product-actions">
         <a href="https://www.kamatlux.com/products/grand-golden-crystal-cascade-jhumar" target="_blank" rel="noopener noreferrer">View Details ↗</a>
         <button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-21">Specifications</button>
-        <a href="#enquiry" class="enquire">Enquire Now</a>
-        <a class="whatsapp" href="https://wa.me/919990891122?text=I%20am%20interested%20in%20the%20Grand%20Golden%20Crystal%20Cascade%20Jhumar." target="_blank" rel="noopener noreferrer">WhatsApp</a>
        </div>
       </div>
       <div id="spec-21" class="specs" hidden>
@@ -1984,8 +2156,6 @@ body {
        <div class="product-actions">
         <a href="https://www.kamatlux.com/products/grand-royal-baroque-crystal-chandelier" target="_blank" rel="noopener noreferrer">View Details ↗</a>
         <button type="button" class="show-specs" aria-expanded="false" aria-controls="spec-22">Specifications</button>
-        <a href="#enquiry" class="enquire">Enquire Now</a>
-        <a class="whatsapp" href="https://wa.me/919990891122?text=I%20am%20interested%20in%20the%20Grand%20Royal%20Baroque%20Crystal%20Chandelier." target="_blank" rel="noopener noreferrer">WhatsApp</a>
        </div>
       </div>
       <div id="spec-22" class="specs" hidden>
@@ -2349,14 +2519,7 @@ body {
     const button=card.querySelector('.show-specs'),panel=document.getElementById(button.getAttribute('aria-controls'));
     button.addEventListener('click',()=>{panel.hidden=!panel.hidden;button.setAttribute('aria-expanded',String(!panel.hidden))});
     const name=card.querySelector('h3').textContent;
-    card.querySelector('.whatsapp').href='https://wa.me/919990891122?text='+encodeURIComponent('Hello Kamatlux, I would like to enquire about '+name+'. Please confirm availability, specifications and final price.');
-    card.querySelector('.enquire').addEventListener('click',()=>{
-      const categorySelect=document.getElementById('product-category');
-      categorySelect.value='Other / Not sure yet';
-      const requirements=document.getElementById('requirements');
-      if(!requirements.value.trim())requirements.value='I would like to enquire about '+name+'. Please confirm availability, specifications and final price.';
-    });
-  });
+});
   document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{
     document.querySelectorAll('.filter').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
     document.querySelectorAll('.project').forEach(project=>project.hidden=button.dataset.filter!=='all'&&project.dataset.type!==button.dataset.filter);
